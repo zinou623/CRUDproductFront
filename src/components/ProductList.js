@@ -36,12 +36,21 @@ class ProductList extends React.Component {
       })
     })
     socket.on('NotifyToUpdate', (productup) => {
+       
       const clonedProduct = this.state.products.slice(0)
+      var f=false
+     //if update
       for (const p in clonedProduct) {
         if (clonedProduct[p]._id === productup._id) {
           clonedProduct[p] = productup
+          f=true
         }
       }
+
+    //if add
+    if(!f){
+        clonedProduct.push(productup)
+    }
 
       this.setState({
         products: clonedProduct

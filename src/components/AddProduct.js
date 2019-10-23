@@ -20,6 +20,7 @@ class AddProduct extends React.Component {
 
     if (props.product) {
       this.state = props.product
+       
     } else {
       this.state = this.initialState
     }
@@ -47,6 +48,7 @@ class AddProduct extends React.Component {
     event.preventDefault()
     this.props.onFormSubmit(this.state)
     this.setState(this.initialState)
+
   }
 
   handleCancel (event) {
@@ -60,6 +62,7 @@ class AddProduct extends React.Component {
     if (this.state._id) {
       this.initialState = this.state
       pageTitle = <h2>Edit Product</h2>
+       
     } else {
       pageTitle = <h2>Add Product</h2>
     }

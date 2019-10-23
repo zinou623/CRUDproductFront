@@ -29,10 +29,12 @@ class App extends Component {
   }
 
   onFormSubmit(data) {
-
+    this.setState({
+      product: {}
+    })
    if(data==null){
      this.setState({
-      
+    
        isAddProduct: false,
        isEditProduct: false
      })
@@ -70,7 +72,7 @@ class App extends Component {
         socket.emit('UpdateProduct', result)
 
         this.setState({
-          response: result,
+          //response: result,
           isAddProduct: false,
           isEditProduct: false
         })
@@ -116,7 +118,10 @@ class App extends Component {
     let productForm;
     if (this.state.isAddProduct || this.state.isEditProduct) {
       productForm = <AddProduct onFormSubmit={this.onFormSubmit} product={this.state.product} />
+   
+     
     }
+    
 
     return (
       <div className="App">
